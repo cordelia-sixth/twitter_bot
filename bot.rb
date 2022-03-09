@@ -16,8 +16,9 @@ end
 uri = URI('https://qiita.com/api/v2/items')
 res = Net::HTTP.get(uri)
 
+index = rand(20)
 json = JSON.parse(res)
-title = json[0]["title"]
-url = json[0]["url"]
+title = json[index]["title"]
+url = json[index]["url"]
 hashTag = "#Qiita"
 client.update("#{title}\n#{url}\n#{hashTag}")
